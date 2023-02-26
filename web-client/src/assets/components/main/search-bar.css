@@ -1,0 +1,26 @@
+.search-bar-div {
+  text-align: center;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.styled-btn-span {
+  color: black;
+  padding: 35px;
+}
+
+@media only screen and (min-width: 412px) {
+  .styled-btn-span {
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .styled-btn-span {
+    padding: 15px;
+  }
+}

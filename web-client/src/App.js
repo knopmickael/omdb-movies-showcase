@@ -2,7 +2,7 @@ import { Header } from "./components/header";
 import { Main } from "./components/main";
 import { Footer } from "./components/footer";
 import { ResponsiveGridLayout } from "@ui5/webcomponents-react";
-import './App.css';
+import './assets/App.css';
 
 function App() {
   return (

@@ -1,36 +1,21 @@
-import { Title, Button, Text, Input } from "@ui5/webcomponents-react";
+import { Title, Button, Input } from "@ui5/webcomponents-react";
+import '../../assets/components/main/search-bar.css';
 
 export function SearchBar() {
   return (
     <>
-      <div
-        style={{
-          textAlign: "center",
-          height: "30%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className="search-bar-div">
         <Title style={{color: "#61DAFB"}}>
           Search
         </Title>
 
-        <Text className="py" style={{color: "white"}}>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout.
-        </Text>
+        <span className="py" style={{color: "white"}}>
+          Feel free to reach any movie you are in mind!
+        </span>
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div>
           
-          <Input placeholder="Item 4" style={{ marginRight: "15px" }} />
+          <Input placeholder="Search here..." style={{ marginRight: "15px" }} />
 
           <Button
             onClick={function noRefCheck() {}}
@@ -40,7 +25,7 @@ export function SearchBar() {
               border: "none"
             }}
           >
-            <span style={{ padding: "25px", color: "black", fontWeight: "bold" }}>Search</span>
+            <span className="styled-btn-span">Search</span>
           </Button>
 
           <Button
@@ -51,7 +36,7 @@ export function SearchBar() {
               border: "none"
             }}
           >
-            <span style={{ padding: "25px", color: "black", fontWeight: "bold" }}>Reset</span>
+            <span className="styled-btn-span">Reset</span>
           </Button>
           
         </div>

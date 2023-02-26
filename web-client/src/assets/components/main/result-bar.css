@@ -1,20 +1,7 @@
-.gap-0 {
-  gap: 0 !important;
-}
-
-.py {
-  padding: 25px 0;
-}
-
-@media only screen and (min-width: 750px) {
-  .py {
-    padding: 50px 0;
-  }
-}
-
 .result-div {
   display: flex;
   height: 70%;
+  overflow-y: auto;
 }
 
 .left-result-side {
@@ -22,7 +9,7 @@
 }
 
 .left-result-side * {
-  margin-bottom: 3vw;
+  margin-bottom: 2vw;
 }
 
 .left-result-side:last-child {
@@ -42,10 +29,19 @@
 }
 
 @media only screen and (min-width: 750px) {
+  .result-div {
+    padding-top: 1vw;
+  }
   .left-result-side {
     width: 60%;
   }
   .right-result-side {
     width: 40%;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .movie-poster {
+    width: 70%;
   }
 }
