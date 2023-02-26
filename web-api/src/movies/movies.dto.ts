@@ -23,5 +23,6 @@ export class MovieSearchAPIResponseDTO {
   year: string;
   plot: string;
   actors: string;
+  poster: string;
   imdbRating: string;
 }
