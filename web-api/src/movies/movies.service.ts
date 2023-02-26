@@ -21,12 +21,15 @@ export class MoviesService {
     if (response.data.Response === 'False')
       throw new NotFoundException('Movie not found');
 
-    const { Title, Year, Plot, Actors, imdbRating } = response.data;
+    console.log(response.data);
+
+    const { Title, Year, Plot, Actors, Poster, imdbRating } = response.data;
     return {
       title: Title,
       year: Year,
       plot: Plot,
       actors: Actors,
+      poster: Poster,
       imdbRating: imdbRating
     };
   }
