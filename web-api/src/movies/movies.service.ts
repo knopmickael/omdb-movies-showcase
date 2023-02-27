@@ -21,8 +21,6 @@ export class MoviesService {
     if (response.data.Response === 'False')
       throw new NotFoundException('Movie not found');
 
-    console.log(response.data);
-
     const { Title, Year, Plot, Actors, Poster, imdbRating } = response.data;
     return {
       title: Title,
