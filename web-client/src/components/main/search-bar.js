@@ -1,43 +1,55 @@
 import { Title, Button, Input } from "@ui5/webcomponents-react";
 import '../../assets/components/main/search-bar.css';
-
-import { useDispatch, useSelector } from "react-redux";
-import { fetchData, clearData } from "../../redux/movies/actions";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchData, clearData, activeIsLoading } from "../../redux/movies/actions";
 
 export function SearchBar() {
-  const { data } = useSelector((rootReducer) => rootReducer.moviesReducer);
+  
+  const [search, setSearch] = useState('');
+
+  const handleSearchValue = (event) => {
+    setSearch(event.target.value);
+  };
+
   const dispatch = useDispatch();
   
   const hookData = () => {
-    dispatch(fetchData('foobar'));
+    dispatch(activeIsLoading());
+    setTimeout(() => {
+      dispatch(fetchData(search));
+    }, window.location.hostname.includes('localhost') ? 2000 : 0);
   };
+
   const resetData = () => {
+    setSearch('');
     dispatch(clearData());
   };
 
-  console.log(data);
-
   return (
     <>
-      <div>
-        <button onClick={() => hookData()}>click me</button>
-        <button onClick={() => resetData()}>reset me</button>
-      </div>
       <div className="search-bar-div">
+        
         <Title style={{color: "#61DAFB"}}>
           Search
         </Title>
 
         <span className="py" style={{color: "white"}}>
-          Feel free to reach any movie you are in mind!
+          Feel free to reach any movie you're in mind!
         </span>
 
         <div>
           
-          <Input placeholder="Search here..." style={{ marginRight: "15px" }} />
+          <Input
+            style={{ marginRight: "15px" }}
+            placeholder="Search here..."
+            value={search}
+            onInput={handleSearchValue}
+          />
 
           <Button
-            onClick={function noRefCheck() {}}
+            onClick={() => hookData()}
+            disabled={search === ''}
             style={{
               marginRight: "15px",
               background: "#61DAFB",
@@ -48,7 +60,8 @@ export function SearchBar() {
           </Button>
 
           <Button
-            onClick={function noRefCheck() {}}
+            onClick={() => resetData()}
+            disabled={search === ''}
             style={{
               marginRight: "15px",
               background: "#61DAFB",

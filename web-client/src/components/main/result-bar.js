@@ -4,20 +4,36 @@ import "@ui5/webcomponents-icons/dist/favorite.js";
 import "@ui5/webcomponents-icons/dist/heart.js";
 import "@ui5/webcomponents-icons/dist/heart-2.js";
 import "../../assets/components/main/result-bar.css";
+import { useSelector } from "react-redux";
 
 export function ResultBar() {
-  const isLoading = false;
+  const { data, isLoading } = useSelector(rootReducer => rootReducer.moviesReducer);
+
+  console.log(data === {});
+  console.log(Object.keys(data).length === 0)
+  console.log(isLoading);
 
   return (
     <>
       {
+
+      isLoading
       
-      isLoading ? (
+      ?
 
-        <p style={{color: "#fff", textAlign: "center", paddingTop: "5vw"}}>Searching...</p>
+      <p style={{color: "#fff", textAlign: "center", paddingTop: "5vw"}}>Searching...</p>
 
-      ) : (
+      :
+      
+      (Object.keys(data).length === 0)
 
+      ?
+
+      <p style={{color: "#fff", textAlign: "center", paddingTop: "5vw"}}>Search your movie...</p>
+
+      :
+
+      (
         <div className="result-div">
           <div className="left-result-side">
             <Title style={{ color: "#61DAFB" }}>Movie</Title>
@@ -70,7 +86,6 @@ export function ResultBar() {
           </div>
         </div>
       )}
-
     </>
   );
 }
