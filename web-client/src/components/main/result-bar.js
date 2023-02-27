@@ -1,4 +1,8 @@
-import { Title, Button } from "@ui5/webcomponents-react";
+import { Title, Button, Icon } from "@ui5/webcomponents-react";
+import "@ui5/webcomponents-icons/dist/unfavorite.js";
+import "@ui5/webcomponents-icons/dist/favorite.js";
+import "@ui5/webcomponents-icons/dist/heart.js";
+import "@ui5/webcomponents-icons/dist/heart-2.js";
 import "../../assets/components/main/result-bar.css";
 
 export function ResultBar() {
@@ -33,11 +37,17 @@ export function ResultBar() {
               <span style={{ color: "#fff" }}>Fulano</span>
             </div>
 
-            <div>
+            <div style={{display: "flex", marginBottom: 0}}>
               <span style={{ color: "#61DAFB", paddingRight: "15px" }}>
                 Review
               </span>
-              <span style={{ color: "#fff" }}>X X X X X</span>
+              <div>
+                <Icon style={{ margin: 0, height: "20px", width: "20px", paddingRight: "5px", fill: "#fff" }} name="unfavorite" />
+                <Icon style={{ margin: 0, height: "20px", width: "20px", paddingRight: "5px", fill: "#fff" }} name="unfavorite" />
+                <Icon style={{ margin: 0, height: "20px", width: "20px", paddingRight: "5px", fill: "#fff" }} name="unfavorite" />
+                <Icon style={{ margin: 0, height: "20px", width: "20px", paddingRight: "5px", fill: "#fff" }} name="unfavorite" />
+                <Icon style={{ margin: 0, height: "20px", width: "20px", paddingRight: "5px", fill: "#fff" }} name="favorite" />
+              </div>
             </div>
 
             <Button
@@ -45,13 +55,12 @@ export function ResultBar() {
               style={{
                 marginRight: "15px",
                 background: "#61DAFB",
-                border: "none",
+                border: "none"
               }}
             >
-              <span
-                style={{ padding: "25px", color: "black", fontWeight: "bold" }}
-              >
-                Favorite O
+              <span style={{ paddingLeft: "25px", paddingRight: "25px"}}>
+                <span style={{ color: "black", fontWeight: "bold" }}>Favorite</span>
+                <Icon style={{ margin: 0, height: "20px", width: "20px", marginBottom: "-5px", paddingLeft: "5px", fill: "#000", paddingTop: "5px" }} name="heart-2" />
               </span>
             </Button>
           </div>
