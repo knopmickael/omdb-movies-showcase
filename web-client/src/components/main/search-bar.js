@@ -1,9 +1,28 @@
 import { Title, Button, Input } from "@ui5/webcomponents-react";
 import '../../assets/components/main/search-bar.css';
 
+import { useDispatch, useSelector } from "react-redux";
+import { fetchData, clearData } from "../../redux/movies/actions";
+
 export function SearchBar() {
+  const { data } = useSelector((rootReducer) => rootReducer.moviesReducer);
+  const dispatch = useDispatch();
+  
+  const hookData = () => {
+    dispatch(fetchData('foobar'));
+  };
+  const resetData = () => {
+    dispatch(clearData());
+  };
+
+  console.log(data);
+
   return (
     <>
+      <div>
+        <button onClick={() => hookData()}>click me</button>
+        <button onClick={() => resetData()}>reset me</button>
+      </div>
       <div className="search-bar-div">
         <Title style={{color: "#61DAFB"}}>
           Search
